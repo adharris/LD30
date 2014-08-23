@@ -75,7 +75,7 @@ KentDirective.$inject = ['$animate'];
 function KentDirective() {
     return {
         restrict: 'E',
-        templateUrl: '/templates/kent.html',
+        templateUrl: 'templates/kent.html',
         require: ['kent', '^kentContainer', '^grid', '^town'],
         controllerAs: 'kent',
         link: function(scope, element, attrs, ctrls) {
