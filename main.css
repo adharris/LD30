@@ -19,7 +19,7 @@ town {
   padding: 32px;
 }
 grid {
-  background: url("/img/grass2.png"), url("/img/grass.png"), url("/img/grass3.png");
+  background: url("img/grass2.png"), url("img/grass.png"), url("img/grass3.png");
   background-color: #588729;
   display: block;
   margin: auto;
@@ -303,7 +303,7 @@ kent {
   z-index: 20;
   transition-property: top, left, transform;
   transition-duration: 300ms, 300ms, 50ms;
-  background: url("/img/kent.png");
+  background: url("img/kent.png");
 }
 kent.down {
   transform: rotate(0deg);
@@ -355,15 +355,15 @@ grid item {
   position: absolute;
 }
 item.tree {
-  background: url("/img/tree.png") no-repeat;
+  background: url("img/tree.png") no-repeat;
   z-index: 25;
 }
 item.path {
-  background: url("/img/path.png") no-repeat;
+  background: url("img/path.png") no-repeat;
   z-index: 2;
 }
 item.house {
-  background: url("/img/house.png") no-repeat;
+  background: url("img/house.png") no-repeat;
 }
 div.items item {
   transition-property: opacity, transform;
