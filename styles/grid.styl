@@ -1,0 +1,108 @@
+cell-size = 64px
+grid-size = 8
+queue-size = 6
+grid-width = grid-size * cell-size
+
+*, *:after, *:before
+    margin 0
+    padding 0
+    box-sizing border-box
+
+
+town
+    display block
+    float left
+    border solid 1px
+    background-color tan
+    width 50%
+    padding (cell-size / 2)
+
+grid
+    background url('/img/grass2.png'), url('/img/grass.png'), url('/img/grass3.png')
+    background-color #588729
+
+    display block
+
+    margin auto
+
+    width grid-width
+    height grid-width
+
+    position relative
+
+
+ul
+    padding 0
+    margin 0
+    list-style none
+
+
+cell
+    display block
+    width cell-size
+    height cell-size
+    border solid 1px black
+    position absolute
+
+
+*
+    for i in (0..(grid-size - 1))
+        for j in (0..(grid-size - 1))
+            &[x=\"{i}\"][y=\"{j}\"]
+                left i * cell-size
+                top j * cell-size
+
+kent
+    display block
+    width cell-size
+    height cell-size
+    position absolute
+    z-index 20
+
+    transition-property top, left, transform
+    transition-duration 300ms, 300ms, 50ms
+
+    background url('/img/kent.png')
+
+    &.down
+        transform rotate(0deg)
+    &.up
+        transform rotate(180deg)
+    &.right
+        transform rotate(-90deg)
+    &.left
+        transform rotate(90deg)
+
+
+
+town ul.queue
+
+    queue-item-size = grid-width / queue-size
+    queue-padding = (queue-item-size - cell-size) / 2
+
+
+    width grid-width
+    height queue-item-size
+    overflow hidden
+    margin 32px auto
+
+    li
+        display inline-block
+        width queue-item-size
+        padding queue-padding
+
+        transition-property margin-left, opacity, width, transform
+        transition-duration 1000ms
+
+    li.ng-leave
+        opacity 1
+        margin-left 0
+        transform scale(1)
+    li.ng-leave-active
+        opacity 0
+        margin-left -1 * queue-item-size
+        transform scale(0)
+    li.ng-enter
+        width 0
+    li.ng-enter-active
+        width queue-item-size

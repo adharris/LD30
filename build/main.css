@@ -1,0 +1,379 @@
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+town {
+  display: block;
+  float: left;
+  border: solid 1px;
+  background-color: #d2b48c;
+  width: 50%;
+  padding: 32px;
+}
+grid {
+  background: url("/img/grass2.png"), url("/img/grass.png"), url("/img/grass3.png");
+  background-color: #588729;
+  display: block;
+  margin: auto;
+  width: 512px;
+  height: 512px;
+  position: relative;
+}
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+cell {
+  display: block;
+  width: 64px;
+  height: 64px;
+  border: solid 1px #000;
+  position: absolute;
+}
+*[x="0"][y="0"] {
+  left: 0px;
+  top: 0px;
+}
+*[x="0"][y="1"] {
+  left: 0px;
+  top: 64px;
+}
+*[x="0"][y="2"] {
+  left: 0px;
+  top: 128px;
+}
+*[x="0"][y="3"] {
+  left: 0px;
+  top: 192px;
+}
+*[x="0"][y="4"] {
+  left: 0px;
+  top: 256px;
+}
+*[x="0"][y="5"] {
+  left: 0px;
+  top: 320px;
+}
+*[x="0"][y="6"] {
+  left: 0px;
+  top: 384px;
+}
+*[x="0"][y="7"] {
+  left: 0px;
+  top: 448px;
+}
+*[x="1"][y="0"] {
+  left: 64px;
+  top: 0px;
+}
+*[x="1"][y="1"] {
+  left: 64px;
+  top: 64px;
+}
+*[x="1"][y="2"] {
+  left: 64px;
+  top: 128px;
+}
+*[x="1"][y="3"] {
+  left: 64px;
+  top: 192px;
+}
+*[x="1"][y="4"] {
+  left: 64px;
+  top: 256px;
+}
+*[x="1"][y="5"] {
+  left: 64px;
+  top: 320px;
+}
+*[x="1"][y="6"] {
+  left: 64px;
+  top: 384px;
+}
+*[x="1"][y="7"] {
+  left: 64px;
+  top: 448px;
+}
+*[x="2"][y="0"] {
+  left: 128px;
+  top: 0px;
+}
+*[x="2"][y="1"] {
+  left: 128px;
+  top: 64px;
+}
+*[x="2"][y="2"] {
+  left: 128px;
+  top: 128px;
+}
+*[x="2"][y="3"] {
+  left: 128px;
+  top: 192px;
+}
+*[x="2"][y="4"] {
+  left: 128px;
+  top: 256px;
+}
+*[x="2"][y="5"] {
+  left: 128px;
+  top: 320px;
+}
+*[x="2"][y="6"] {
+  left: 128px;
+  top: 384px;
+}
+*[x="2"][y="7"] {
+  left: 128px;
+  top: 448px;
+}
+*[x="3"][y="0"] {
+  left: 192px;
+  top: 0px;
+}
+*[x="3"][y="1"] {
+  left: 192px;
+  top: 64px;
+}
+*[x="3"][y="2"] {
+  left: 192px;
+  top: 128px;
+}
+*[x="3"][y="3"] {
+  left: 192px;
+  top: 192px;
+}
+*[x="3"][y="4"] {
+  left: 192px;
+  top: 256px;
+}
+*[x="3"][y="5"] {
+  left: 192px;
+  top: 320px;
+}
+*[x="3"][y="6"] {
+  left: 192px;
+  top: 384px;
+}
+*[x="3"][y="7"] {
+  left: 192px;
+  top: 448px;
+}
+*[x="4"][y="0"] {
+  left: 256px;
+  top: 0px;
+}
+*[x="4"][y="1"] {
+  left: 256px;
+  top: 64px;
+}
+*[x="4"][y="2"] {
+  left: 256px;
+  top: 128px;
+}
+*[x="4"][y="3"] {
+  left: 256px;
+  top: 192px;
+}
+*[x="4"][y="4"] {
+  left: 256px;
+  top: 256px;
+}
+*[x="4"][y="5"] {
+  left: 256px;
+  top: 320px;
+}
+*[x="4"][y="6"] {
+  left: 256px;
+  top: 384px;
+}
+*[x="4"][y="7"] {
+  left: 256px;
+  top: 448px;
+}
+*[x="5"][y="0"] {
+  left: 320px;
+  top: 0px;
+}
+*[x="5"][y="1"] {
+  left: 320px;
+  top: 64px;
+}
+*[x="5"][y="2"] {
+  left: 320px;
+  top: 128px;
+}
+*[x="5"][y="3"] {
+  left: 320px;
+  top: 192px;
+}
+*[x="5"][y="4"] {
+  left: 320px;
+  top: 256px;
+}
+*[x="5"][y="5"] {
+  left: 320px;
+  top: 320px;
+}
+*[x="5"][y="6"] {
+  left: 320px;
+  top: 384px;
+}
+*[x="5"][y="7"] {
+  left: 320px;
+  top: 448px;
+}
+*[x="6"][y="0"] {
+  left: 384px;
+  top: 0px;
+}
+*[x="6"][y="1"] {
+  left: 384px;
+  top: 64px;
+}
+*[x="6"][y="2"] {
+  left: 384px;
+  top: 128px;
+}
+*[x="6"][y="3"] {
+  left: 384px;
+  top: 192px;
+}
+*[x="6"][y="4"] {
+  left: 384px;
+  top: 256px;
+}
+*[x="6"][y="5"] {
+  left: 384px;
+  top: 320px;
+}
+*[x="6"][y="6"] {
+  left: 384px;
+  top: 384px;
+}
+*[x="6"][y="7"] {
+  left: 384px;
+  top: 448px;
+}
+*[x="7"][y="0"] {
+  left: 448px;
+  top: 0px;
+}
+*[x="7"][y="1"] {
+  left: 448px;
+  top: 64px;
+}
+*[x="7"][y="2"] {
+  left: 448px;
+  top: 128px;
+}
+*[x="7"][y="3"] {
+  left: 448px;
+  top: 192px;
+}
+*[x="7"][y="4"] {
+  left: 448px;
+  top: 256px;
+}
+*[x="7"][y="5"] {
+  left: 448px;
+  top: 320px;
+}
+*[x="7"][y="6"] {
+  left: 448px;
+  top: 384px;
+}
+*[x="7"][y="7"] {
+  left: 448px;
+  top: 448px;
+}
+kent {
+  display: block;
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  z-index: 20;
+  transition-property: top, left, transform;
+  transition-duration: 300ms, 300ms, 50ms;
+  background: url("/img/kent.png");
+}
+kent.down {
+  transform: rotate(0deg);
+}
+kent.up {
+  transform: rotate(180deg);
+}
+kent.right {
+  transform: rotate(-90deg);
+}
+kent.left {
+  transform: rotate(90deg);
+}
+town ul.queue {
+  width: 512px;
+  height: 85.33333333333333px;
+  overflow: hidden;
+  margin: 32px auto;
+}
+town ul.queue li {
+  display: inline-block;
+  width: 85.33333333333333px;
+  padding: 10.666666666666664px;
+  transition-property: margin-left, opacity, width, transform;
+  transition-duration: 1000ms;
+}
+town ul.queue li.ng-leave {
+  opacity: 1;
+  margin-left: 0;
+  transform: scale(1);
+}
+town ul.queue li.ng-leave-active {
+  opacity: 0;
+  margin-left: -85.33333333333333px;
+  transform: scale(0);
+}
+town ul.queue li.ng-enter {
+  width: 0;
+}
+town ul.queue li.ng-enter-active {
+  width: 85.33333333333333px;
+}
+item {
+  display: block;
+  width: 64px;
+  height: 64px;
+}
+grid item {
+  position: absolute;
+}
+item.tree {
+  background: url("/img/tree.png") no-repeat;
+  z-index: 25;
+}
+item.path {
+  background: url("/img/path.png") no-repeat;
+  z-index: 2;
+}
+item.house {
+  background: url("/img/house.png") no-repeat;
+}
+div.items item {
+  transition-property: opacity, transform;
+  transition-duration: 250ms;
+}
+div.items item.ng-enter {
+  opacity: 0;
+  transform: scale(0);
+}
+div.items item.ng-enter-active {
+  opacity: 1;
+  transform: scale(1);
+}
