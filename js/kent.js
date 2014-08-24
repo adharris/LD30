@@ -117,8 +117,8 @@ function KentDirective() {
                 }
             };
 
-            this.setCoord('x', 0);
-            this.setCoord('y', 0);
+            this.setCoord('x', 3);
+            this.setCoord('y', 3);
         }],
     };
 }

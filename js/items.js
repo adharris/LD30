@@ -18,16 +18,23 @@ function Tree() {
 
     this.name = "tree";
     this.isPassable = false;
+    this.score = {
+        tree: 1,
+    };
 
     this.canCoexistWith = function(item) {
         return false;
     };
+
 }
 
 function Path() {
 
     this.name = 'path';
     this.isPassable = true;
+    this.score = {
+        path: 1,
+    };
 
     this.canCoexistWith = function(item) {
         return false;
@@ -37,6 +44,12 @@ function Path() {
 function House() {
     this.name = 'house';
     this.isPassable = false;
+
+    this.score = {
+        house: -1,
+        tree: 1,
+        path: 1,
+    };
 
     this.canCoexistWith = function(item) {
         return false;

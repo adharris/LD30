@@ -12,3 +12,8 @@ Paths:
 
 Trees:
     Adjacent to another tree
+
+
+## TODO
+
+write rules
