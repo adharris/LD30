@@ -56,7 +56,7 @@ function House() {
     };
 }
 
-var everyIteration = [Tree, House, Path];
+var everyIteration = [Path, Tree, House];
 
 function buildIteration() {
     var iteration = [];

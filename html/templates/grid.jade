@@ -3,6 +3,6 @@ kent
 
 div.items
     item(ng-repeat='i in grid.items',
-         ng-class="i.item.name",
-         x="{{ i.x }}",
-         y="{{ i.y }}")
+         ng-class="i.cell.class(i.item)",
+         x="{{ i.cell.x }}",
+         y="{{ i.cell.y }}")

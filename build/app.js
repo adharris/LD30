@@ -19,10 +19,10 @@ var neighborMap = {
     e: [1, 0],
     s: [0, 1],
     w: [-1, 0],
-    ne: [1, -1],
-    se: [1, 1],
-    sw: [-1, 1],
-    nw: [-1, -1],
+    // ne: [1, -1],
+    // se: [1, 1],
+    // sw: [-1, 1],
+    // nw: [-1, -1],
 };
 
 function Cell(x, y) {
@@ -86,6 +86,19 @@ function Cell(x, y) {
 
         return score;
     };
+
+    this.class = function(item) {
+        var d = {};
+        d[item.name] = true;
+
+        for (var n in this.neighbors) {
+            for (var i in this.neighbors[n].items) {
+                d[n + '-' + this.neighbors[n].items[i].name] = true;
+            }
+        }
+
+        return d;
+    };
 }
 
 function GridDirective() {
@@ -107,7 +120,7 @@ function GridDirective() {
 
             this.getCell = function(x, y) {
                 if (x < 0 || x >= settings.townSize || y < 0 || y >= settings.townSize) {
-                    return null;
+                    return undefined;
                 }
                 if (angular.isUndefined(this.cells[x])) {
                     this.cells[x] = {};
@@ -133,7 +146,7 @@ function GridDirective() {
             this.placeItem = function(item, x, y) {
                 var cell = this.getCell(x, y);
                 if (cell.placeItem(item)) {
-                    this.items.push({x: x, y: y, item: item});
+                    this.items.push({cell: cell, item: item});
                     this.town.setScore(this.getScore());
                 }
             };
@@ -225,7 +238,7 @@ function House() {
     };
 }
 
-var everyIteration = [Tree, House, Path];
+var everyIteration = [Path, Tree, House];
 
 function buildIteration() {
     var iteration = [];
