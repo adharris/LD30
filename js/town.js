@@ -1,14 +1,7 @@
 
 app = angular.module('app');
 
-var items = require("./items");
-
-var itemNames = Object.keys(items);
-
-function getRandomItem() {
-    var rand = Math.floor(Math.random() * itemNames.length);
-    return new items[itemNames[rand]]();
-}
+var ItemQueue = require("./items");
 
 
 var townCounter = 0;
@@ -22,18 +15,13 @@ function TownDirective($document) {
         controllerAs: 'town',
         controller: ['$scope', function($scope) {
 
-            this.queue = [];
-
-            for (var i=0; i < 6; i++) {
-                this.queue.push(getRandomItem());
-            }
+            this.queue = new ItemQueue(6);
 
             this.peekItem = function() {
                 return this.queue[0];
             };
 
             this.popItem = function() {
-                this.queue.push(getRandomItem());
                 return this.queue.shift();
             };
         }],

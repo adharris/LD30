@@ -1,7 +1,5 @@
 
 var module = angular.module('app');
-var items = require("./items");
-
 
 function Cell(x, y) {
     this.x = x;

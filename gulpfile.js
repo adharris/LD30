@@ -49,7 +49,5 @@ gulp.task('watch', ['js', 'jade', 'styles', 'img'], function() {
 
 });
 
-gulp.task("default", function() {
-    gulp.run("watch");
-});
+gulp.task("default", ['js', 'jade', 'styles', 'img']);
 
