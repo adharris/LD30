@@ -3,6 +3,41 @@ body {
   height: 100%;
   overflow: hidden;
 }
+button {
+  padding: 8px;
+}
+.showRules {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  width: 100px;
+  margin-left: -50px;
+}
+.rules {
+  z-index: 900;
+  width: 700px;
+  height: 86%;
+  background-color: #fff;
+  position: fixed;
+  top: 7%;
+  left: 50%;
+  margin-left: -350px;
+  padding: 16px;
+  border-radius: 16px;
+}
+.rules .row {
+  clear: both;
+  margin-bottom: 24px;
+}
+.rules .row img {
+  float: left;
+}
+.rules .row p {
+  padding-top: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-left: 80px;
+}
 *,
 *:after,
 *:before {
