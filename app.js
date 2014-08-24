@@ -14,11 +14,24 @@ require('./kent');
 
 var module = angular.module('app');
 
+var neighborMap = {
+    n: [0, -1],
+    e: [1, 0],
+    s: [0, 1],
+    w: [-1, 0],
+    ne: [1, -1],
+    se: [1, 1],
+    sw: [-1, 1],
+    nw: [-1, -1],
+};
+
 function Cell(x, y) {
     this.x = x;
     this.y = y;
 
     this.items = [];
+    this.neighbors = {};
+    this.adjacentItems = [];
 
     this.canPlaceItem = function(item) {
         for (var i = 0; i < this.items.length; i++) {
@@ -45,9 +58,33 @@ function Cell(x, y) {
     this.placeItem = function(item) {
         if (!this.hasItem(item)) {
             this.items.push(item);
+
+            for (var n in this.neighbors) {
+                if (this.neighbors[n]) {
+                    this.neighbors[n].adjacentItems.push(item);
+                }
+            }
             return true;
         }
         return false;
+    };
+
+    this.getScore = function() {
+        var score = 0;
+        for (var i = 0; i < this.items.length; i++) {
+            score += this.getScoreForItem(this.items[i]);
+        }
+        return score;
+    };
+
+    this.getScoreForItem = function(item) {
+        var score = 0;
+
+        for (var i = 0; i < this.adjacentItems.length; i++) {
+            score +=  item.score[this.adjacentItems[i].name] || 0;
+        }
+
+        return score;
     };
 }
 
@@ -69,11 +106,21 @@ function GridDirective() {
             this.items = [];
 
             this.getCell = function(x, y) {
+                if (x < 0 || x >= settings.townSize || y < 0 || y >= settings.townSize) {
+                    return null;
+                }
                 if (angular.isUndefined(this.cells[x])) {
                     this.cells[x] = {};
                 }
                 if (angular.isUndefined(this.cells[x][y])) {
                     this.cells[x][y] = new Cell(x, y);
+                    for (var neighbor in neighborMap) {
+                        var neighborCell = this.getCell(x + neighborMap[neighbor][0],
+                                                        y + neighborMap[neighbor][1]);
+                        if (angular.isDefined(neighborCell)) {
+                            this.cells[x][y].neighbors[neighbor] = neighborCell;
+                        }
+                    }
                 }
                 return this.cells[x][y];
             };
@@ -86,9 +133,19 @@ function GridDirective() {
             this.placeItem = function(item, x, y) {
                 var cell = this.getCell(x, y);
                 if (cell.placeItem(item)) {
-                    console.log('place', this.town.id, item.name);
                     this.items.push({x: x, y: y, item: item});
+                    this.town.setScore(this.getScore());
                 }
+            };
+
+            this.getScore = function() {
+                var score = 0;
+                for (var x in this.cells) {
+                    for (var y in this.cells[x]) {
+                        score += this.cells[x][y].getScore();
+                    }
+                }
+                return score;
             };
 
             this.isPassable = function(x, y) {
@@ -130,16 +187,23 @@ function Tree() {
 
     this.name = "tree";
     this.isPassable = false;
+    this.score = {
+        tree: 1,
+    };
 
     this.canCoexistWith = function(item) {
         return false;
     };
+
 }
 
 function Path() {
 
     this.name = 'path';
     this.isPassable = true;
+    this.score = {
+        path: 1,
+    };
 
     this.canCoexistWith = function(item) {
         return false;
@@ -149,6 +213,12 @@ function Path() {
 function House() {
     this.name = 'house';
     this.isPassable = false;
+
+    this.score = {
+        house: -1,
+        tree: 1,
+        path: 1,
+    };
 
     this.canCoexistWith = function(item) {
         return false;
@@ -312,8 +382,8 @@ function KentDirective() {
                 }
             };
 
-            this.setCoord('x', 0);
-            this.setCoord('y', 0);
+            this.setCoord('x', 3);
+            this.setCoord('y', 3);
         }],
     };
 }
@@ -338,6 +408,7 @@ function TownDirective($document) {
         controller: ['$scope', function($scope) {
 
             this.queue = new ItemQueue(6);
+            this.score = 0;
 
             this.peekItem = function() {
                 return this.queue[0];
@@ -345,6 +416,10 @@ function TownDirective($document) {
 
             this.popItem = function() {
                 return this.queue.shift();
+            };
+
+            this.setScore = function(score) {
+                this.score = score;
             };
         }],
     };
