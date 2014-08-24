@@ -1,6 +1,7 @@
 doctype html
 html
     head
+        title Bidimensional Landscaping | #LD30
         link(rel="stylesheet" href="main.css")
         script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.18/angular.min.js",
                type='text/javascript')
@@ -13,4 +14,49 @@ html
         div(kent-container)
             town
             town
+
+        button.showRules(ng-click='hideRules = false') Show Rules
+
+
+        div.rules(ng-if="!hideRules")
+            h1 Bidimensional Landscaping
+
+            .row
+                img(src='img/kent.png')
+                p
+                    | Kent is a landscaper. He also exists in two dimensions.
+
+                p
+                    | Move Kent around with, W A S and D, or the arrow keys.
+                    | Place the next item in the queue with space.
+
+                p
+                    | Earn aesthetic points by placing items next to (North,
+                    | South, East, or West) other items according to the
+                    | following rules
+
+            .row
+                img(src='img/tree.png')
+                p
+                    | People like forests, so +1 aesthetic for each tree next
+                    | to each tree.
+            .row
+                img(src='img/path-4.png')
+                p
+                    | Paths need to connect to other paths to be useful.
+                    | +1 aesthetic for each path connected to a path.
+            .row
+                img(src='img/house.png')
+                p
+                    | People like their houses to be pretty, +1 aesthetic for
+                    | each tree next to a house.  People also like being able
+                    | to get to their house, so +1 aesthetic for each adjacent
+                    | path.
+                p
+                    | People do not like other people, so -1 aesthetic for two
+                    | adjacent houses.
+
+
+            button(ng-click="$parent.hideRules = true") Close Rules
+
 
