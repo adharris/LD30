@@ -10,11 +10,12 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+html {
+  background-color: #d2b48c;
+}
 town {
   display: block;
   float: left;
-  border: solid 1px;
-  background-color: #d2b48c;
   width: 50%;
 }
 .score {
@@ -22,6 +23,7 @@ town {
   width: 512px;
   margin: auto;
   font-size: 24px;
+  text-align: center;
 }
 grid {
   background: url("img/grass2.png"), url("img/grass.png"), url("img/grass3.png");
@@ -367,18 +369,125 @@ item.path {
   background: url("img/path.png") no-repeat;
   z-index: 2;
 }
+item.path.n-path,
+item.path.n-house {
+  background: url("img/path-1.png") no-repeat;
+  transform: rotate(0deg);
+}
+item.path.s-path,
+item.path.s-house {
+  background: url("img/path-1.png") no-repeat;
+  transform: rotate(180deg);
+}
+item.path.e-path,
+item.path.e-house {
+  background: url("img/path-1.png") no-repeat;
+  transform: rotate(90deg);
+}
+item.path.w-path,
+item.path.w-house {
+  background: url("img/path-1.png") no-repeat;
+  transform: rotate(-90deg);
+}
+item.path.w-path.n-path,
+item.path.w-house.n-path,
+item.path.w-path.n-house,
+item.path.w-house.n-house {
+  background: url("img/path-90.png") no-repeat;
+  transform: rotate(0deg);
+}
+item.path.e-path.n-path,
+item.path.e-house.n-path,
+item.path.e-path.n-house,
+item.path.e-house.n-house {
+  background: url("img/path-90.png") no-repeat;
+  transform: rotate(90deg);
+}
+item.path.w-path.s-path,
+item.path.w-house.s-path,
+item.path.w-path.s-house,
+item.path.w-house.s-house {
+  background: url("img/path-90.png") no-repeat;
+  transform: rotate(-90deg);
+}
+item.path.e-path.s-path,
+item.path.e-house.s-path,
+item.path.e-path.s-house,
+item.path.e-house.s-house {
+  background: url("img/path-90.png") no-repeat;
+  transform: rotate(180deg);
+}
+item.path.e-path.w-path,
+item.path.e-house.w-path,
+item.path.e-path.w-house,
+item.path.e-house.w-house {
+  background: url("img/path-180.png") no-repeat;
+  transform: rotate(0deg);
+}
+item.path.n-path.s-path,
+item.path.n-house.s-path,
+item.path.n-path.s-house,
+item.path.n-house.s-house {
+  background: url("img/path-180.png") no-repeat;
+  transform: rotate(90deg);
+}
+item.path.n-path.e-path.w-path,
+item.path.n-path.e-path.w-house,
+item.path.n-path.e-house.w-path,
+item.path.n-path.e-house.w-house,
+item.path.n-house.e-path.w-path,
+item.path.n-house.e-path.w-house,
+item.path.n-house.e-house.w-path,
+item.path.n-house.e-house.w-house {
+  background: url("img/path-3.png") no-repeat;
+  transform: rotate(0deg);
+}
+item.path.n-path.s-path.e-path,
+item.path.n-path.s-path.e-house,
+item.path.n-path.s-house.e-path,
+item.path.n-path.s-house.e-house,
+item.path.n-house.s-path.e-path,
+item.path.n-house.s-path.e-house,
+item.path.n-house.s-house.e-path,
+item.path.n-house.s-house.e-house {
+  background: url("img/path-3.png") no-repeat;
+  transform: rotate(90deg);
+}
+item.path.s-path.e-path.w-path,
+item.path.s-path.e-path.w-house,
+item.path.s-path.e-house.w-path,
+item.path.s-path.e-house.w-house,
+item.path.s-house.e-path.w-path,
+item.path.s-house.e-path.w-house,
+item.path.s-house.e-house.w-path,
+item.path.s-house.e-house.w-house {
+  background: url("img/path-3.png") no-repeat;
+  transform: rotate(180deg);
+}
+item.path.n-path.s-path.w-path,
+item.path.n-path.s-path.w-house,
+item.path.n-path.s-house.w-path,
+item.path.n-path.s-house.w-house,
+item.path.n-house.s-path.w-path,
+item.path.n-house.s-path.w-house,
+item.path.n-house.s-house.w-path,
+item.path.n-house.s-house.w-house {
+  background: url("img/path-3.png") no-repeat;
+  transform: rotate(-90deg);
+}
+item.path.n-path.s-path.e-path.w-path {
+  background: url("img/path-4.png");
+}
 item.house {
   background: url("img/house.png") no-repeat;
 }
-div.items item {
-  transition-property: opacity, transform;
+div.items item.ng-enter {
+  transition-property: opacity;
   transition-duration: 250ms;
 }
 div.items item.ng-enter {
   opacity: 0;
-  transform: scale(0);
 }
 div.items item.ng-enter-active {
   opacity: 1;
-  transform: scale(1);
 }
