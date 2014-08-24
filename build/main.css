@@ -510,7 +510,22 @@ item.path.n-house.s-house.w-house {
   background: url("img/path-3.png") no-repeat;
   transform: rotate(-90deg);
 }
-item.path.n-path.s-path.e-path.w-path {
+item.path.n-path.s-path.w-path.e-path,
+item.path.n-house.s-path.w-path.e-path,
+item.path.n-path.s-house.w-path.e-path,
+item.path.n-house.s-house.w-path.e-path,
+item.path.n-path.s-path.w-house.e-path,
+item.path.n-house.s-path.w-house.e-path,
+item.path.n-path.s-house.w-house.e-path,
+item.path.n-house.s-house.w-house.e-path,
+item.path.n-path.s-path.w-path.e-house,
+item.path.n-house.s-path.w-path.e-house,
+item.path.n-path.s-house.w-path.e-house,
+item.path.n-house.s-house.w-path.e-house,
+item.path.n-path.s-path.w-house.e-house,
+item.path.n-house.s-path.w-house.e-house,
+item.path.n-path.s-house.w-house.e-house,
+item.path.n-house.s-house.w-house.e-house {
   background: url("img/path-4.png");
 }
 item.house {

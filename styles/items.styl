@@ -113,8 +113,13 @@ item.path.n-house.s-house.w-house
     background url('img/path-3.png') no-repeat;
     transform rotate(-90deg)
 
-item.path.n-path.s-path.e-path.w-path
-    background url('img/path-4.png')
+
+item.path
+    &.n-path, &.n-house
+        &.s-path, &.s-house
+            &.w-path, &.w-house
+                &.e-path, &.e-house
+                    background url('img/path-4.png')
 
 
 item.house
