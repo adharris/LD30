@@ -1,5 +1,7 @@
 # Kent: Bidimensional Landscaper
 
+[Play the game here](http://adharris.github.io/LD30/)
+
 This is my entry into [Ludum Dare #30](http://www.ludumdare.com/compo/category/ld-30/).
 It's a score-attack puzzler where you control two instances of the game at a
 time.
